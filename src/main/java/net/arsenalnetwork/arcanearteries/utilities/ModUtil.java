@@ -43,7 +43,7 @@ public class ModUtil
      */
     public static <T extends IForgeRegistryEntry.Impl<?>> T setRegistryNames(final T entry, final ResourceLocation registryName) {
 
-        return setRegistryNames(entry, registryName, registryName.getNamespace());
+        return setRegistryNames(entry, registryName, registryName.getPath());
     }
 
     /**

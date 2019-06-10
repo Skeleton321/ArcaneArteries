@@ -7,6 +7,7 @@ import WayofTime.bloodmagic.util.DamageSourceBloodMagic;
 import WayofTime.bloodmagic.util.helper.PlayerSacrificeHelper;
 import WayofTime.bloodmagic.util.helper.PurificationHelper;
 import net.arsenalnetwork.arcanearteries.common.creativetabs.ModCreativeTabs;
+import net.arsenalnetwork.arcanearteries.utilities.ModReference;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
@@ -39,7 +40,11 @@ public class ItemBotaniaSacrifice extends Item implements IVariantProvider
         this.setFull3D();
         this.setMaxDamage(100);
         this.weaponDamage = 1.0F;
+        setTranslationKey(name);
         ModUtil.setRegistryNames(this, name);
+    }
+
+    private void getTranslationKey(String name) {
     }
 
     @Override

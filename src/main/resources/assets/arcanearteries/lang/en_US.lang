@@ -1,12 +1,12 @@
 #Tab
-itemGroup.JordTab=Arcane Arteries
+itemGroup.arcanearteriesmodtab=Arcane Arteries
 #Daggers
 item.knife.name=Elven Knife
 item.thaumicKnife.name=Arcane Blade
 item.configDagger.name=Razor Blade
 item.evilDagger.name=Evil Blade
 
-#item.botaniasacrifice.name=Botanical Dagger of Sacrifice
+item.botaniasacrifice.name=Botanical Dagger of Sacrifice
 item.thaumcraftSacrifice.name=Thaumic Dagger of Sacrifice
 item.evilcraftSacrifice.name=Evil Dagger of Sacrifice
 

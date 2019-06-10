@@ -15,7 +15,7 @@ public class ModCreativeTabs
     {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(ModItems.ITEM_BOTANIA_SACRIFICE);
+            return new ItemStack(ModItems.BOTANIASACRIFICE);
         }
     };
 

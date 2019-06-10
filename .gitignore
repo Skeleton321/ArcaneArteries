@@ -14,25 +14,14 @@ out
 .idea
 .bat
 
-run/*
-!run/**/
-run/ArsenalMod/*
-run/config/*
-run/crash-reports/*
-run/logs/*
-run/saves/*
-run/world/*
-run/production/net.arsenalnetwork.arsenalmod.Project-Z-Mod.main/*
-!run/ArsenalMod/**/
-
 # gradle
 build
 .gradle
+run/
 
 # other
 eclipse
 formatter/
 classes/
-libs/
 build/
 *.DS_Store*

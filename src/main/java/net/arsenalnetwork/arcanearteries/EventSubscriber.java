@@ -31,7 +31,7 @@ public class EventSubscriber
             registry.register(ModUtil.setRegistryNames(new ItemBlock(ourBlock), ourBlock.getRegistryName()));
         });
 
-        registry.register(new ItemBotaniaSacrifice("item_botania_sacrifice"));
+        registry.register(new ItemBotaniaSacrifice("botaniasacrifice"));
 
         LOGGER.info("Registered items");
 

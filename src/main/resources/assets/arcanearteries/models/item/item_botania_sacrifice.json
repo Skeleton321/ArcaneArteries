@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "arcanearteries:items/item_botania_sacrifice"
-  }
-}

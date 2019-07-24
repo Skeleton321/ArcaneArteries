@@ -21,7 +21,7 @@ import java.io.IOException;
 /**
  * Created by MaxIsH0t on June 9, 2019 | Copyright 2019 Arsenal Network
  */
-@Mod(modid = ModReference.MOD_ID, name = ModReference.MOD_NAME, version = ModReference.MOD_VERSION)
+@Mod(modid = ModReference.MOD_ID, name = ModReference.MOD_NAME, version = ModReference.MOD_VERSION, dependencies = ModReference.MOD_DEP)
 public class ArcaneArteries
 {
     /**

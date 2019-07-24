@@ -27,9 +27,9 @@ public class ItemThaumicKnife extends ItemBotaniaSacrifice
         super(name);
         this.maxStackSize = 1;
         this.isFull3D();
-        setTranslationKey(name);
         this.setCreativeTab(ModCreativeTabs.MOD_TAB);
-        ModUtil.setRegistryNames(this, name);
+        setTranslationKey(name);
+        setRegistryName(name);
     }
 
     @Override

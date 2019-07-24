@@ -1,10 +1,13 @@
 package net.arsenalnetwork.arcanearteries;
 
+import net.arsenalnetwork.arcanearteries.client.config.ConfigFile;
 import net.arsenalnetwork.arcanearteries.common.CommonProxy;
 import net.arsenalnetwork.arcanearteries.utilities.ModReference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -12,6 +15,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -24,6 +28,8 @@ import java.io.IOException;
 @Mod(modid = ModReference.MOD_ID, name = ModReference.MOD_NAME, version = ModReference.MOD_VERSION, dependencies = ModReference.MOD_DEP)
 public class ArcaneArteries
 {
+    public static Configuration config;
+
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
      */
@@ -52,6 +58,9 @@ public class ArcaneArteries
     public void preInit(FMLPreInitializationEvent event) throws IOException {
         ModReference.LOGGER.info(ModReference.MOD_ID + ":preInit");
         PROXY.preInit(event);
+
+        config = new Configuration(event.getSuggestedConfigurationFile());
+        ConfigFile.INSTANCE.syncConfig();
 
         ModReference.DEV_ENVIRONMENT = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
         if(ModReference.DEV_ENVIRONMENT)
@@ -84,14 +93,13 @@ public class ArcaneArteries
         System.out.println( ModReference.MOD_NAME + " | Server Started");
     }
 
-    @SideOnly(Side.CLIENT)
-    private void clientSide() {
-        File configDirectory = new File(Loader.instance().getConfigDir(), "/ArcaneArteries/");
-
-        if(!configDirectory.exists())
+    @SubscribeEvent
+    public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event)
+    {
+        if (event.getModID().equals("arcanearteries"))
         {
-            configDirectory.mkdir();
-            System.out.println("ArcaneArteries Config directory does not exist! Creating one now.");
+            ConfigFile.INSTANCE.syncConfig();
         }
     }
+
 }

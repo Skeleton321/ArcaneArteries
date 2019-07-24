@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "arcanearteries:botaniasacrifice"
+  },
+  "pattern": [
+    " s ",
+    "sbs",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "s": {
+      "item": "minecraft:stone_button"
+    },
+    "b": {
+      "item": "minecraft:stone_button"
+    }
+  }
+}

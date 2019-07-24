@@ -1,10 +1,8 @@
 package net.arsenalnetwork.arcanearteries;
 
 import net.arsenalnetwork.arcanearteries.client.model.RegisterItemModels;
-import net.arsenalnetwork.arcanearteries.common.init.ModItems;
 import net.arsenalnetwork.arcanearteries.common.items.ItemBotaniaSacrifice;
 import net.arsenalnetwork.arcanearteries.common.items.ItemSlates;
-import net.arsenalnetwork.arcanearteries.common.items.ItemThaumicKnife;
 import net.arsenalnetwork.arcanearteries.utilities.ModReference;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
 import net.minecraft.block.Block;
@@ -39,9 +37,9 @@ public class EventSubscriber
             registry.register(ModUtil.setRegistryNames(new ItemBlock(ourBlock), ourBlock.getRegistryName()));
         });
 
-        registry.register(new ItemBotaniaSacrifice("botaniasacrifice"));
+        registry.register(new ItemBotaniaSacrifice("botaniasacrifice", 3));
 
-        registry.register(new ItemSlates("thaumicSlate"));
+        registry.register(new ItemSlates("thaumicslate"));
 
         LOGGER.info("Registered items");
 

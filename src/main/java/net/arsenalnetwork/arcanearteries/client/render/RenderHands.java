@@ -32,17 +32,17 @@ public class RenderHands
         EntityPlayerSP player = Minecraft.getMinecraft().player;
         ItemStack handItem = player.getHeldItem(e.getHand());
 
-        if (handItem.getItem() == ModItems.BOTANIASACRIFICE || handItem.getItem() == ModItems.THAUMIC_KNIFE)
+        if (handItem.getItem() == ModItems.BOTANIASACRIFICE)
         {
             if (!player.isSwingInProgress)
             {
                 GlStateManager.disableCull();
                 GlStateManager.pushMatrix();
-                GlStateManager.rotate(90F, 1.0F, 0F, 0.0F);
-                GlStateManager.rotate(40F, 0F, 0F, 1.0F);
+                GlStateManager.rotate(130F, 1.0F, 0F, 0.0F);
+                GlStateManager.rotate(90F, 0F, 1.0F, 0.0F);
                 // X = Move to right or left | Y = Move In Or Out | Z = Move Up Or Down
-                GlStateManager.translate(0.65F, -0.4F, 0.6F);
-                float scale = 1.2F;
+                GlStateManager.translate(-0.5F, 0.1F, 0.9F);
+                float scale = 1.3F;
                 GlStateManager.scale(scale, scale, scale);
                 renderArm(EnumHandSide.LEFT);
                 GlStateManager.popMatrix();

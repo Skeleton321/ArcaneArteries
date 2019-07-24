@@ -24,9 +24,9 @@ import java.io.IOException;
 @Mod(modid = ModReference.MOD_ID, name = ModReference.MOD_NAME, version = ModReference.MOD_VERSION)
 public class ArcaneArteries
 {
-    // Dev Related
-    public static boolean DEV_ENVIRONMENT;
-
+    /**
+     * This is the instance of your mod as created by Forge. It will never be null.
+     */
     @Mod.Instance(ModReference.MOD_ID)
     public static ArcaneArteries INSTANCE;
 
@@ -38,7 +38,8 @@ public class ArcaneArteries
      */
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        System.out.println(ModReference.MOD_ID + ":init");
+        ModReference.LOGGER.info(ModReference.MOD_ID + ":init");
+        PROXY.init(event);
         MinecraftForge.EVENT_BUS.register(ArcaneArteries.INSTANCE);
     }
 
@@ -48,16 +49,19 @@ public class ArcaneArteries
      * @see {@link net.minecraftforge.common.ForgeModContainer#preInit(FMLPreInitializationEvent) ForgeModContainer.preInit}
      */
     @Mod.EventHandler
-    public void onPreInit(FMLPreInitializationEvent event) throws IOException {
-        System.out.println(ModReference.MOD_ID + ":preInit");
+    public void preInit(FMLPreInitializationEvent event) throws IOException {
+        ModReference.LOGGER.info(ModReference.MOD_ID + ":preInit");
+        PROXY.preInit(event);
 
-        ArcaneArteries.DEV_ENVIRONMENT = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
-        if(ArcaneArteries.DEV_ENVIRONMENT)
+        ModReference.DEV_ENVIRONMENT = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
+        if(ModReference.DEV_ENVIRONMENT)
         {
             System.out.println("Started [ArcaneArteries] mod in development environment");
         } else {
             System.out.println("Started [ArcaneArteries] mod outside of development environment");
         }
+
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     /**
@@ -66,8 +70,9 @@ public class ArcaneArteries
      * @see {@link net.minecraftforge.common.ForgeModContainer#postInit(FMLPostInitializationEvent) ForgeModContainer.postInit}
      */
     @Mod.EventHandler
-    public void onPostInitialization(FMLPostInitializationEvent event) {
-        System.out.println(ModReference.MOD_ID + ":postInit");
+    public void postInit(FMLPostInitializationEvent event) {
+        ModReference.LOGGER.info(ModReference.MOD_ID + ":postInit");
+        PROXY.postInit(event);
     }
 
     /**

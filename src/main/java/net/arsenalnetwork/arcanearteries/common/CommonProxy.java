@@ -14,7 +14,7 @@ public class CommonProxy
 
     }
 
-    public void onPreInit(FMLPreInitializationEvent event) {
+    public void preInit(FMLPreInitializationEvent event) {
 
     }
 

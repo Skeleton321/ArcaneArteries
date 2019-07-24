@@ -13,8 +13,8 @@ public class ClientProxy extends CommonProxy
     }
 
     @Override
-    public void onPreInit(FMLPreInitializationEvent event) {
-        super.onPreInit(event);
+    public void preInit(FMLPreInitializationEvent event) {
+        super.preInit(event);
     }
 
     @Override

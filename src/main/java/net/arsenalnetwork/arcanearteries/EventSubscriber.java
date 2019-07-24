@@ -37,9 +37,11 @@ public class EventSubscriber
             registry.register(ModUtil.setRegistryNames(new ItemBlock(ourBlock), ourBlock.getRegistryName()));
         });
 
-        registry.register(new ItemBotaniaSacrifice("botaniasacrifice", 3));
+        registry.register(new ItemBotaniaSacrifice("botaniasacrifice", 4.0F));
 
+        // SLATES
         registry.register(new ItemSlates("thaumicslate"));
+        registry.register(new ItemSlates("manaslate"));
 
         LOGGER.info("Registered items");
 

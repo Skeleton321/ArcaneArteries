@@ -3,6 +3,7 @@ package net.arsenalnetwork.arcanearteries.common.items;
 import WayofTime.bloodmagic.client.IVariantProvider;
 import net.arsenalnetwork.arcanearteries.common.creativetabs.ModCreativeTabs;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +20,7 @@ import java.util.List;
 public class ItemBotaniaSacrifice extends Item implements IVariantProvider
 {
     private final float weaponDamage;
+    int x, y, z;
 
     public ItemBotaniaSacrifice(final String name, final float damage)
     {
@@ -34,20 +36,22 @@ public class ItemBotaniaSacrifice extends Item implements IVariantProvider
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) target), this.weaponDamage);
-        stack.damageItem(1, target);
+        World world = Minecraft.getMinecraft().world;
+        BlockPos pos = new BlockPos(x, y, z);
+
+        if (!world.isRemote)
+        {
+            world.spawnParticle(EnumParticleTypes.REDSTONE, pos.getX(), pos.getY(), pos.getZ(), 1, 1, 1, 10);
+
+        }
+        target.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) attacker), this.weaponDamage);
+        stack.damageItem(1, attacker);
         return true;
     }
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
     {
-        if (!worldIn.isRemote)
-        {
-            worldIn.spawnParticle(EnumParticleTypes.REDSTONE, pos.getX(), pos.getY(), pos.getZ(), hitX, hitY, hitZ, 10);
-
-        }
-
         return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
     }
 
@@ -58,7 +62,7 @@ public class ItemBotaniaSacrifice extends Item implements IVariantProvider
         tooltip.add(TextFormatting.RED + "A prick of a flower so sweet");
         tooltip.add(TextFormatting.RED + "To draw blood from thy meat");
 
-        tooltip.add(TextFormatting.RED + "Damage: " + TextFormatting.YELLOW + this.weaponDamage);
+        tooltip.add(TextFormatting.BLUE + "Damage: " + TextFormatting.YELLOW + this.weaponDamage);
     }
 
     @Override

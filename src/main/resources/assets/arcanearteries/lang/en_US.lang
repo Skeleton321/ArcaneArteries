@@ -11,11 +11,11 @@ item.thaumcraftSacrifice.name=Thaumic Dagger of Sacrifice
 item.evilcraftSacrifice.name=Evil Dagger of Sacrifice
 
 #Blocks
-tile.manaRune.name=Botanical Rune
-tile.thaumicRune.name=Thaumic Rune
+tile.manarune.name=Botanical Rune
+tile.thaumicrune.name=Thaumic Rune
 #Slates
-item.manaSlate.name=Botanical Slate
-item.thaumicSlate.name=Thaumic Slate
+item.manaslate.name=Botanical Slate
+item.thaumicslate.name=Thaumic Slate
 
 
 #Thaumonomicon Stuff

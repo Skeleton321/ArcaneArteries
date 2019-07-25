@@ -88,7 +88,7 @@ public class ArcaneArteries
 
         registerModFixes();
         ModFixesMaster.enableModFixes();
-        ArcaneResearch.addResearch();
+        //ArcaneResearch.addResearch();
     }
 
     /**

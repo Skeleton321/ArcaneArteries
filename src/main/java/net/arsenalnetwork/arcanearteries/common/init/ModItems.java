@@ -1,9 +1,6 @@
 package net.arsenalnetwork.arcanearteries.common.init;
 
-import net.arsenalnetwork.arcanearteries.common.items.ItemBotaniaSacrifice;
-import net.arsenalnetwork.arcanearteries.common.items.ItemSlates;
-import net.arsenalnetwork.arcanearteries.common.items.ItemThaumcraftSacrifice;
-import net.arsenalnetwork.arcanearteries.common.items.ItemThaumicKnife;
+import net.arsenalnetwork.arcanearteries.common.items.*;
 import net.arsenalnetwork.arcanearteries.utilities.ModReference;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -14,4 +11,5 @@ public class ModItems
     public static final ItemSlates THAUMICSLATE = null;
     public static final ItemThaumicKnife THAUMICKNIFE = null;
     public static final ItemThaumcraftSacrifice THAUMCRAFTSACRIFICE = null;
+    public static final ItemKnife KNIFE = null;
 }

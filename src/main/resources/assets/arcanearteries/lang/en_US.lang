@@ -1,7 +1,8 @@
 #Tab
 itemGroup.arcanearteriesmodtab=Arcane Arteries
 #Daggers
-item.knife.name=Elven Knife
+item.knife.normal.name=Elven Knife
+item.knife.creative.name=Creative Elven Knife
 item.thaumicknife.normal.name=Arcane Blade
 item.thaumicknife.creative.name=Creative Arcane Blade
 item.configDagger.name=Razor Blade

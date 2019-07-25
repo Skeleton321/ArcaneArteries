@@ -6,7 +6,9 @@
 package net.arsenalnetwork.arcanearteries.client.updatorcheck;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.IChatComponent.Serializer;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 
 import java.awt.*;
 import java.io.File;
@@ -15,7 +17,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
-public class ThreadDownloadMod extends Thread {
+public class ThreadDownloadMod extends Thread
+{
   String fileName;
   byte[] buffer = new byte[10240];
   int totalBytesDownloaded;
@@ -31,9 +34,9 @@ public class ThreadDownloadMod extends Thread {
 
   public void run() {
     try {
-      IChatComponent component = Serializer.func_150699_a(String.format(StatCollector.translateToLocal("botania.versioning.startingDownload"), this.fileName));
-      if (Minecraft.getMinecraft().thePlayer != null) {
-        Minecraft.getMinecraft().thePlayer.addChatMessage(component);
+      if (Minecraft.getMinecraft().player != null)
+      {
+        Minecraft.getMinecraft().player.sendChatMessage(String.format(this.fileName, new TextComponentTranslation("botania.versioning.startingDownload")));
       }
 
       VersionChecker.startedDownload = true;
@@ -65,8 +68,8 @@ public class ThreadDownloadMod extends Thread {
         f.renameTo(f1);
       }
 
-      if (Minecraft.getMinecraft().thePlayer != null) {
-        Minecraft.getMinecraft().thePlayer.addChatMessage((new ChatComponentTranslation("botania.versioning.doneDownloading", new Object[]{this.fileName})).setChatStyle((new ChatStyle()).setColor(EnumChatFormatting.AQUA)));
+      if (Minecraft.getMinecraft().player != null) {
+        Minecraft.getMinecraft().player.sendChatMessage(String.valueOf((new TextComponentTranslation("botania.versioning.doneDownloading", new Object[]{this.fileName})).setStyle((new Style()).setColor(TextFormatting.AQUA))));
       }
 
       Desktop.getDesktop().open(dir);
@@ -86,8 +89,8 @@ public class ThreadDownloadMod extends Thread {
   }
 
   private void sendError() {
-    if (Minecraft.getMinecraft().thePlayer != null) {
-      Minecraft.getMinecraft().thePlayer.addChatComponentMessage((new ChatComponentTranslation("botania.versioning.error", new Object[0])).setChatStyle((new ChatStyle()).setColor(EnumChatFormatting.RED)));
+    if (Minecraft.getMinecraft().player != null) {
+      Minecraft.getMinecraft().player.sendChatMessage(String.valueOf((new TextComponentTranslation("botania.versioning.error", new Object[0])).setStyle((new Style()).setColor(TextFormatting.RED))));
     }
 
   }

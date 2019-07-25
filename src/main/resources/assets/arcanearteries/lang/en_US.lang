@@ -10,6 +10,11 @@ item.botaniasacrifice.name=Botanical Dagger of Sacrifice
 item.thaumcraftSacrifice.name=Thaumic Dagger of Sacrifice
 item.evilcraftSacrifice.name=Evil Dagger of Sacrifice
 
+botania.versioning.outdated=Botania jar outdated!
+botania.versioning.doneDownloading=Done Downloading!
+botania.versioning.startingDownload=Starting Downloading!
+botania.versioning.error=Error Downloading!
+
 #Blocks
 tile.mana_rune.name=Botanical Rune
 tile.thaumic_rune.name=Thaumic Rune

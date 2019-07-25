@@ -1,9 +1,15 @@
 package net.arsenalnetwork.arcanearteries.client.updatorcheck;
 
-public class CheckVersion
-  //implements Runnable
+import org.apache.commons.io.IOUtils;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class CheckVersion implements Runnable
 {
-  /**
+
   private static boolean isLatestVersion = false;
   private static String latestVersion = "";
   
@@ -13,7 +19,7 @@ public class CheckVersion
     InputStream in = null;
     try
     {
-      in = new URL("https://raw.githubusercontent.com/jordsta95/ArcaneArteries/master/aaversion.txt").openStream();
+      in = new URL("https://raw.githubusercontent.com/MaxIsH0t/ArcaneArteries/master/version-checker").openStream();
 
     }
     catch (MalformedURLException e)
@@ -26,10 +32,10 @@ public class CheckVersion
     {
       e.printStackTrace();
     }
-    
-    try
+
+      try
     {
-      latestVersion = (String)IOUtils.readLines(in).get(0);
+      latestVersion = (String) IOUtils.readLines(in).get(0);
 
     }
     catch (IOException e)
@@ -52,5 +58,5 @@ public class CheckVersion
   public String getLatestVersion()
   {
     return latestVersion;
-  }**/
+  }
 }

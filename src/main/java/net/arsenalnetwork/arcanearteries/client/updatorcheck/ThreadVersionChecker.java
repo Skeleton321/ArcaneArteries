@@ -17,7 +17,7 @@ public class ThreadVersionChecker
   public void run()
   {
     try {
-      URL url = new URL("https://raw.githubusercontent.com/jordsta95/ArcaneArteries/master/aaversion.txt");
+      URL url = new URL("https://raw.githubusercontent.com/MaxIsH0t/ArcaneArteries/master/version-checker");
       BufferedReader r = new BufferedReader(new InputStreamReader(url.openStream()));
       VersionChecker.onlineVersion = r.readLine();
       r.close();

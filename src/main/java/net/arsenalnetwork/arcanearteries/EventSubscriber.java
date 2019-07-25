@@ -1,5 +1,6 @@
 package net.arsenalnetwork.arcanearteries;
 
+import net.arsenalnetwork.arcanearteries.client.config.ConfigFile;
 import net.arsenalnetwork.arcanearteries.client.model.RegisterItemModels;
 import net.arsenalnetwork.arcanearteries.common.blocks.BlockBloodRuneAA;
 import net.arsenalnetwork.arcanearteries.common.entity.EntityGolem;
@@ -50,10 +51,25 @@ public class EventSubscriber
             registry.register(ModUtil.setRegistryNames(new ItemBlock(ourBlock), ourBlock.getRegistryName()));
         });
 
-        registry.register(new ItemBotaniaSacrifice("botaniasacrifice", 4.0F));
-        registry.register(new ItemThaumicKnife("thaumicknife", 4.0F));
-        registry.register(new ItemThaumcraftSacrifice("thaumcraftsacrifice", 4.0F));
-        registry.register(new ItemKnife("knife", 4.0F));
+        if (ConfigFile.botaniasacrifice == true)
+        {
+            registry.register(new ItemBotaniaSacrifice("botaniasacrifice", 4.0F));
+        }
+
+        if (ConfigFile.thaumicknife == true)
+        {
+            registry.register(new ItemThaumicKnife("thaumicknife", 4.0F));
+        }
+
+        if (ConfigFile.thaumicsacrifice == true)
+        {
+            registry.register(new ItemThaumcraftSacrifice("thaumcraftsacrifice", 4.0F));
+        }
+
+        if (ConfigFile.knife == true)
+        {
+            registry.register(new ItemKnife("knife", 4.0F));
+        }
 
         // SLATES
         registry.register(new ItemSlates("thaumicslate"));

@@ -11,6 +11,7 @@ public class ModItems
 {
     public static final ItemBotaniaSacrifice BOTANIASACRIFICE = null;
     public static final ItemSlates THAUMICSLATE = null;
+    public static final ItemSlates MANASLATE = null;
     public static final ItemThaumicKnife THAUMICKNIFE = null;
     public static final ItemThaumcraftSacrifice THAUMCRAFTSACRIFICE = null;
     public static final ItemKnife KNIFE = null;

@@ -5,9 +5,10 @@ import net.arsenalnetwork.arcanearteries.ArcaneArteries;
 public class ConfigFile
 {
     public static ConfigFile INSTANCE = new ConfigFile();
-    public static boolean thaumcraftDagger;
-    public static boolean botaniaDagger;
-    public static boolean razorBlade;
+    public static boolean botaniasacrifice;
+    public static boolean thaumicknife;
+    public static boolean thaumicsacrifice;
+    public static boolean knife;
     public static boolean configSacrifice;
     public static boolean evilDagger;
     public static boolean slates;
@@ -38,52 +39,50 @@ public class ConfigFile
 
     public void syncConfig()
     {
-        ArcaneArteries.config.addCustomCategoryComment("AWARNING!", "NON OF THESE CONFIG OPTIONS WORK YET!");
+        //String HARDCRAFTING = "general" + "." + "Hard Mode";
+        //ArcaneArteries.config.addCustomCategoryComment(HARDCRAFTING, "Turn on hardmode");
+        //hardCrafting = ArcaneArteries.config.get(HARDCRAFTING, "Use hardmode crafting recipes?", false).getBoolean(false);
 
-        String HARDCRAFTING = "general" + "." + "Hard Mode";
-        ArcaneArteries.config.addCustomCategoryComment(HARDCRAFTING, "Turn on hardmode");
-        hardCrafting = ArcaneArteries.config.get(HARDCRAFTING, "Use hardmode crafting recipes?", false).getBoolean(false);
+        //String HARDDAGGERS = "general" + "." + "Hard Mode";
+        //hardDaggers = ArcaneArteries.config.get(HARDDAGGERS, "Arcane Arteries daggers/knives will give less LP?", false).getBoolean(false);
 
-        String HARDDAGGERS = "general" + "." + "Hard Mode";
-        hardDaggers = ArcaneArteries.config.get(HARDDAGGERS, "Arcane Arteries daggers/knives will give less LP?", false).getBoolean(false);
+        //String MANADAGGER = "general" + "." + "Hard Mode";
+        //manadagger = ArcaneArteries.config.get(MANADAGGER, "The Botantical knife should require mana?", true).getBoolean(true);
 
-        String MANADAGGER = "general" + "." + "Hard Mode";
-        manadagger = ArcaneArteries.config.get(MANADAGGER, "The Botantical knife should require mana?", true).getBoolean(true);
-
-        String MANADAGGERUSED = "general" + "." + "Hard Mode";
-        manaused = ArcaneArteries.config.get(MANADAGGERUSED, "The Botantical knife should use X mana?", 100).getInt();
+        //String MANADAGGERUSED = "general" + "." + "Hard Mode";
+        //manaused = ArcaneArteries.config.get(MANADAGGERUSED, "The Botantical knife should use X mana?", 100).getInt();
 
 
 
-        String THAUM = "general" + "." + "Daggers";
-        ArcaneArteries.config.addCustomCategoryComment(THAUM, "Disable different dagger types here");
-        thaumcraftDagger = ArcaneArteries.config.get(THAUM, "Enable Thaumic Dagger", true).getBoolean(true);
+        String BS = "general" + "." + "Daggers";
+        ArcaneArteries.config.addCustomCategoryComment(BS, "Disable different dagger types here");
+        botaniasacrifice = ArcaneArteries.config.get(BS, "Enable BotaniaSacrifice Dagger", true).getBoolean(true);
+
+        String TK = "general" + "." + "Daggers";
+        ArcaneArteries.config.addCustomCategoryComment(TK, "Disable different dagger types here");
+        thaumicknife = ArcaneArteries.config.get(TK, "Enable ThaumicKnife Dagger", true).getBoolean(true);
+
+        String TS = "general" + "." + "Daggers";
+        ArcaneArteries.config.addCustomCategoryComment(TS, "Disable different dagger types here");
+        thaumicsacrifice = ArcaneArteries.config.get(TS, "Enable ThaumicSacrifice Dagger", true).getBoolean(true);
+
+        String KNIFE = "general" + "." + "Daggers";
+        ArcaneArteries.config.addCustomCategoryComment(KNIFE, "Disable different dagger types here");
+        knife = ArcaneArteries.config.get(KNIFE, "Enable Knife Dagger", true).getBoolean(true);
+
+        //String RAZ = "general" + "." + "Daggers";
+        //razorBlade = ArcaneArteries.config.get(RAZ, "Do you want the configurable 'dagger' to be disabled?", true).getBoolean(true);
+
+
+        //String SELFSAC = "general" + "." + "Daggers";
+        //disableSelfSac = ArcaneArteries.config.get(SELFSAC, "Enable all Daggers of Self Sacrifice?", true).getBoolean(true);
+
+        //String SAC = "general" + "." + "Daggers";
+        //disableSac = ArcaneArteries.config.get(SAC, "Enable all Daggers of Sacrifice?", true).getBoolean(true);
 
 
 
-        String BOT = "general" + "." + "Daggers";
-        ArcaneArteries.config.addCustomCategoryComment(BOT, "Disable different dagger types here");
-        botaniaDagger = ArcaneArteries.config.get(BOT, "Enable Botania Dagger", true).getBoolean(true);
-
-
-
-        String EVIL = "general" + "." + "Daggers";
-        evilDagger = ArcaneArteries.config.get(EVIL, "Enable EvilCraft Dagger", true).getBoolean(true);
-
-
-
-        String RAZ = "general" + "." + "Daggers";
-        razorBlade = ArcaneArteries.config.get(RAZ, "Do you want the configurable 'dagger' to be disabled?", true).getBoolean(true);
-
-
-        String SELFSAC = "general" + "." + "Daggers";
-        disableSelfSac = ArcaneArteries.config.get(SELFSAC, "Enable all Daggers of Self Sacrifice?", true).getBoolean(true);
-
-        String SAC = "general" + "." + "Daggers";
-        disableSac = ArcaneArteries.config.get(SAC, "Enable all Daggers of Sacrifice?", true).getBoolean(true);
-
-
-
+        /**
         String RAZMAIN = "general" + "." + "Custom Dagger";
         ArcaneArteries.config.addCustomCategoryComment(RAZMAIN, "Configure the custom dagger here");
         rbDamage = ArcaneArteries.config.get(RAZMAIN, "How much LP should you get without Soul Fray?", 100).getInt();
@@ -145,7 +144,7 @@ public class ConfigFile
 
         String CDN = "general" + "." + "Custom Dagger of Sacrifice";
         cName = ArcaneArteries.config.get(CDN, "What should the dagger be called?", "Default Name").getString();
-
+**/
 
 
         if (ArcaneArteries.config.hasChanged()) {

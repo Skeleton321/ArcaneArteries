@@ -2,11 +2,16 @@ package net.arsenalnetwork.arcanearteries;
 
 import net.arsenalnetwork.arcanearteries.client.model.RegisterItemModels;
 import net.arsenalnetwork.arcanearteries.common.blocks.BlockBloodRuneAA;
+import net.arsenalnetwork.arcanearteries.common.entity.EntityGolem;
 import net.arsenalnetwork.arcanearteries.common.items.*;
+import net.arsenalnetwork.arcanearteries.common.items.baubles.ItemSubCollar;
+import net.arsenalnetwork.arcanearteries.common.items.scribes.ItemBloodwell;
+import net.arsenalnetwork.arcanearteries.common.items.thaumcraft.ItemGolem;
 import net.arsenalnetwork.arcanearteries.utilities.ModReference;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -16,6 +21,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -23,6 +29,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import thaumcraft.common.golems.EntityThaumcraftGolem;
+import thaumcraft.common.golems.client.RenderThaumcraftGolem;
 
 @Mod.EventBusSubscriber(modid = ModReference.MOD_ID)
 public class EventSubscriber
@@ -34,7 +42,8 @@ public class EventSubscriber
      * Register Items
      **/
     @SubscribeEvent
-    public static void onRegisterItemsEvent(final RegistryEvent.Register<Item> event) {
+    public static void onRegisterItemsEvent(final RegistryEvent.Register<Item> event)
+    {
         final IForgeRegistry<Item> registry = event.getRegistry();
 
         ForgeRegistries.BLOCKS.getValuesCollection().stream().filter((block) -> block.getRegistryName().getNamespace().equals(ModReference.MOD_ID)).forEach((ourBlock) -> {
@@ -50,6 +59,9 @@ public class EventSubscriber
         registry.register(new ItemSlates("thaumicslate"));
         registry.register(new ItemSlates("manaslate"));
 
+        registry.register(new ItemSubCollar("item_sub_collar"));
+        registry.register(new ItemBloodwell("item_bloodwell"));
+
         LOGGER.info("Registered items");
 
     }
@@ -58,7 +70,8 @@ public class EventSubscriber
      * Register Blocks
      **/
     @SubscribeEvent
-    public static void onRegisterBlocksEvent(final RegistryEvent.Register<Block> event) {
+    public static void onRegisterBlocksEvent(final RegistryEvent.Register<Block> event)
+    {
         final IForgeRegistry<Block> registry = event.getRegistry();
 
         registry.register(new BlockBloodRuneAA(Material.CLAY, "mana_rune"));
@@ -70,14 +83,23 @@ public class EventSubscriber
     }
 
     @SubscribeEvent
-    public static void onRegisterModelsEvent(final ModelRegistryEvent event) {
+    public static void onRegisterModelsEvent(final ModelRegistryEvent event)
+    {
         OBJLoader.INSTANCE.addDomain("arsenalmod");
         LOGGER.info("Registered entity renderers");
         ForgeRegistries.BLOCKS.getValuesCollection().stream().filter(block -> block.getRegistryName().getNamespace().equals("arcanearteries")).forEach(ourBlock -> registerItemBlockModel(ourBlock));
         ForgeRegistries.ITEMS.getValuesCollection().stream().filter(item -> item.getRegistryName().getNamespace().equals("arcanearteries")).forEach(ourItem -> registerItemModel(ourItem));
         LOGGER.info("Registered models");
 
+        registerTileEntitySpecialRenderers();
+
         LOGGER.info("Registered tile entity special renderers");
+    }
+
+    private static void registerTileEntitySpecialRenderers()
+    {
+        RenderingRegistry.registerEntityRenderingHandler(EntityGolem.class, new RenderThaumcraftGolem(Minecraft.getMinecraft().getRenderManager()));
+
     }
 
     private static void registerItemBlockModel(final Block block) {
@@ -88,19 +110,23 @@ public class EventSubscriber
         registerItemModel(item, "inventory");
     }
 
-    private static void registerItemBlockModel(final Block block, final String variant) {
+    private static void registerItemBlockModel(final Block block, final String variant)
+    {
         registerItemModel(Item.getItemFromBlock(block), variant);
     }
 
-    private static void registerItemModel(final Item item, final String variant) {
+    private static void registerItemModel(final Item item, final String variant)
+    {
         ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), variant));
     }
 
-    private static void registerTileEntities() {
+    private static void registerTileEntities()
+    {
         //registerTileEntity(TileEntityBoundJar.class);
     }
 
-    private static void registerTileEntity(final Class<? extends TileEntity> clazz) {
+    private static void registerTileEntity(final Class<? extends TileEntity> clazz)
+    {
 
         try {
             GameRegistry.registerTileEntity(clazz, new ResourceLocation(ModReference.MOD_ID, ModUtil.getRegistryNameForClass(clazz, "TileEntity")));

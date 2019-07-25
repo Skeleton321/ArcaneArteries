@@ -1,6 +1,9 @@
 package net.arsenalnetwork.arcanearteries;
 
 import net.arsenalnetwork.arcanearteries.client.config.ConfigFile;
+import net.arsenalnetwork.arcanearteries.client.modfixes.ModFixesMaster;
+import net.arsenalnetwork.arcanearteries.client.modfixes.thaumcraft.TestFix;
+import net.arsenalnetwork.arcanearteries.client.research.ArcaneResearch;
 import net.arsenalnetwork.arcanearteries.common.CommonProxy;
 import net.arsenalnetwork.arcanearteries.utilities.ModReference;
 import net.minecraft.client.Minecraft;
@@ -82,6 +85,18 @@ public class ArcaneArteries
     public void postInit(FMLPostInitializationEvent event) {
         ModReference.LOGGER.info(ModReference.MOD_ID + ":postInit");
         PROXY.postInit(event);
+
+        registerModFixes();
+        ModFixesMaster.enableModFixes();
+        ArcaneResearch.addResearch();
+    }
+
+    /**
+     * Register your mod-fixes here
+     */
+    private void registerModFixes()
+    {
+        ModFixesMaster.registerModFix(new TestFix());
     }
 
     /**

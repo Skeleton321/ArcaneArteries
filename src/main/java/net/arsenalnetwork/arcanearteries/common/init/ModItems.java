@@ -1,6 +1,8 @@
 package net.arsenalnetwork.arcanearteries.common.init;
 
 import net.arsenalnetwork.arcanearteries.common.items.*;
+import net.arsenalnetwork.arcanearteries.common.items.baubles.ItemSubCollar;
+import net.arsenalnetwork.arcanearteries.common.items.scribes.ItemBloodwell;
 import net.arsenalnetwork.arcanearteries.utilities.ModReference;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -12,4 +14,7 @@ public class ModItems
     public static final ItemThaumicKnife THAUMICKNIFE = null;
     public static final ItemThaumcraftSacrifice THAUMCRAFTSACRIFICE = null;
     public static final ItemKnife KNIFE = null;
+
+    public static final ItemSubCollar ITEM_SUB_COLLAR = null;
+    public static final ItemBloodwell ITEM_BLOODWELL = null;
 }

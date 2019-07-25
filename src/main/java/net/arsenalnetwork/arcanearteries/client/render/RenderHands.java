@@ -32,7 +32,7 @@ public class RenderHands
         EntityPlayerSP player = Minecraft.getMinecraft().player;
         ItemStack handItem = player.getHeldItem(e.getHand());
 
-        if (handItem.getItem() == ModItems.BOTANIASACRIFICE)
+        if (handItem.getItem() == ModItems.BOTANIASACRIFICE || handItem.getItem() == ModItems.THAUMICKNIFE)
         {
             if (!player.isSwingInProgress)
             {

@@ -5,6 +5,8 @@ import net.arsenalnetwork.arcanearteries.client.model.RegisterItemModels;
 import net.arsenalnetwork.arcanearteries.common.blocks.BlockBloodRuneAA;
 import net.arsenalnetwork.arcanearteries.common.items.ItemBotaniaSacrifice;
 import net.arsenalnetwork.arcanearteries.common.items.ItemSlates;
+import net.arsenalnetwork.arcanearteries.common.items.ItemThaumcraftSacrifice;
+import net.arsenalnetwork.arcanearteries.common.items.ItemThaumicKnife;
 import net.arsenalnetwork.arcanearteries.utilities.ModReference;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
 import net.minecraft.block.Block;
@@ -42,6 +44,8 @@ public class EventSubscriber
         });
 
         registry.register(new ItemBotaniaSacrifice("botaniasacrifice", 4.0F));
+        registry.register(new ItemThaumicKnife("thaumicknife", 4.0F));
+        registry.register(new ItemThaumcraftSacrifice("thaumcraftsacrifice", 4.0F));
 
         // SLATES
         registry.register(new ItemSlates("thaumicslate"));

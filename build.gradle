@@ -13,9 +13,9 @@ buildscript {
 
 apply plugin: "net.minecraftforge.gradle.forge"
 
-version = "1.0.0"
+version = "1.12.2-1.0.0"
 group = "net.arsenalnetwork.arcanearteries"
-archivesBaseName = "arcanearteries"
+archivesBaseName = "ArcaneArteries"
 
 minecraft {
     version = project.forgeVersion

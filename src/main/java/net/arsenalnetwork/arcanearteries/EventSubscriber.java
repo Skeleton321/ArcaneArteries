@@ -1,11 +1,15 @@
 package net.arsenalnetwork.arcanearteries;
 
+import WayofTime.bloodmagic.block.BlockBloodRune;
 import net.arsenalnetwork.arcanearteries.client.model.RegisterItemModels;
+import net.arsenalnetwork.arcanearteries.common.blocks.BlockBloodRuneAA;
 import net.arsenalnetwork.arcanearteries.common.items.ItemBotaniaSacrifice;
 import net.arsenalnetwork.arcanearteries.common.items.ItemSlates;
 import net.arsenalnetwork.arcanearteries.utilities.ModReference;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -53,6 +57,9 @@ public class EventSubscriber
     @SubscribeEvent
     public static void onRegisterBlocksEvent(final RegistryEvent.Register<Block> event) {
         final IForgeRegistry<Block> registry = event.getRegistry();
+
+        registry.register(new BlockBloodRuneAA(Material.CLAY, "mana_rune"));
+        registry.register(new BlockBloodRuneAA(Material.CLAY,"thaumic_rune"));
 
         LOGGER.info("Registered blocks");
     }

@@ -1,0 +1,69 @@
+#Tab
+itemGroup.arcanearteriesmodtab=奥法献祭学
+#Daggers
+item.knife.normal.name=精灵匕首
+item.knife.creative.name=创造模式精灵匕首
+item.thaumicknife.normal.name=神秘匕首
+item.thaumicknife.creative.name=创造模式神秘匕首
+item.configDagger.name=剃刀匕首
+item.evilDagger.name=邪恶匕首
+
+item.item_bloodwell.name=鲜血笔与墨
+
+item.botaniasacrifice.name=植物魔法献祭刀
+item.thaumcraftsacrifice.name=神秘献祭刀
+item.evilcraftsacrifice.name=邪恶献祭刀
+
+# info
+tooltip.arcanearteries.thaumic_knife.0=&cSome would say I am crazy for using this!
+tooltip.arcanearteries.thaumic_knife.1=&9伤害: &e%d
+
+tooltip.arcanearteries.botania_sacrifice.0=&cA prick of a flower so sweet
+tooltip.arcanearteries.botania_sacrifice.1=&cTo draw blood from thy meat
+tooltip.arcanearteries.botania_sacrifice.2=&9伤害: &e%d
+
+tooltip.arcanearteries.knife.0=&cDo I make you thorny baby!
+tooltip.arcanearteries.knife.1=&9伤害: &e%d
+
+tooltip.arcanearteries.thaumcraft_sacrifice.0=&cThe ancient art of killing
+tooltip.arcanearteries.thaumcraft_sacrifice.1=&cthrough the use of magic is thrilling
+tooltip.arcanearteries.thaumcraft_sacrifice.2=&9伤害: &e%d
+
+tooltip.arcanearteries.blood_well.1=当前的拥有者: %s
+
+tooltip.arcanearteries.item_sub_collar.0=&容量: %f
+tooltip.arcanearteries.item_sub_collar.addon.0=拥有者: %s
+tooltip.arcanearteries.item_sub_collar.addon.1=Has Cosmetic: %s
+
+#Blocks
+tile.mana_rune.name=植物魔法符文
+tile.thaumic_rune.name=神秘符文
+#Slates
+item.manaslate.name=植物魔法石板
+item.thaumicslate.name=神秘石板
+
+
+#Thaumonomicon Stuff
+tc.research_category.ZARTERIES=奥法献祭学
+tc.research_name.SLATE=神秘石板
+tc.research_text.SLATE=最起码它不用消耗血
+aa.research_page.SLATE=通过向石头中注入纯粹的生命魔法，你发现了一种更有效率并且完全放弃生命源质的方法来制作石板。<BR><BR> 这种石板比一般的空板石板更有用并且升级更快。
+tc.research_name.DAGGER=奥法献祭学
+tc.research_text.DAGGER=收集所有血液！
+aa.research_page.DAGGER=收集血液过去是一个苦差事，但现在不再是了。 你对神秘学的研究让你发现了更快向血祭坛献血的方法。
+tc.research_name.DAGGERH=奥法献祭学
+tc.research_text.DAGGERH=收集所有血液！
+aa.research_page.DAGGERH=收集血液过去是一个苦差事，但现在不再是了。 你对神秘学的研究让你发现了更快向血祭坛献血的方法。
+tc.research_name.RUNE=神秘符文
+tc.research_text.RUNE=神秘版的升级
+aa.research_page.Rune=一个神秘使,血魔法师,和一个植物魔法师共同走进了一间酒吧。每人都提出了他们对于如何升级血祭坛的想法。<BR>这是神秘使想出来的版本。
+tc.research_name.SACRIFICEDAGGER=怪物之血
+tc.research_text.SACRIFICEDAGGER=剁碎它们!
+aa.research_page.SACRIFICEDAGGER=你在长期划伤自己献祭之后发现了更好地方法来填充血之祭坛。
+tc.research_name.SACRIFICEDAGGERH=怪物之血
+tc.research_text.SACRIFICEDAGGERH=剁碎它们!
+
+botania.versioning.outdated=Botania jar outdated!
+botania.versioning.doneDownloading=Done Downloading!
+botania.versioning.startingDownload=Starting Downloading!
+botania.versioning.error=Error Downloading!aa.research_page.SACRIFICEDAGGERH=你在长期划伤自己献祭之后发现了更好地方法来填充血之祭坛。

@@ -19,6 +19,27 @@ botania.versioning.doneDownloading=Done Downloading!
 botania.versioning.startingDownload=Starting Downloading!
 botania.versioning.error=Error Downloading!
 
+# info
+tooltip.arcanearteries.thaumic_knife.0=&cSome would say I am crazy for using this!
+tooltip.arcanearteries.thaumic_knife.1=&9Damage: &e%d
+
+tooltip.arcanearteries.botania_sacrifice.0=&cA prick of a flower so sweet
+tooltip.arcanearteries.botania_sacrifice.1=&cTo draw blood from thy meat
+tooltip.arcanearteries.botania_sacrifice.2=&9Damage: &e%d
+
+tooltip.arcanearteries.knife.0=&cDo I make you thorny baby!
+tooltip.arcanearteries.knife.1=&9Damage: &e%d
+
+tooltip.arcanearteries.thaumcraft_sacrifice.0=&cThe ancient art of killing
+tooltip.arcanearteries.thaumcraft_sacrifice.1=&cthrough the use of magic is thrilling
+tooltip.arcanearteries.thaumcraft_sacrifice.2=&9Damage: &e%d
+
+tooltip.arcanearteries.blood_well.1=Current Owner: %s
+
+tooltip.arcanearteries.item_sub_collar.0=&6Capacity: %f
+tooltip.arcanearteries.item_sub_collar.addon.0=Owner: %s
+tooltip.arcanearteries.item_sub_collar.addon.1=Has Cosmetic: %s
+
 #Blocks
 tile.mana_rune.name=Botanical Rune
 tile.thaumic_rune.name=Thaumic Rune

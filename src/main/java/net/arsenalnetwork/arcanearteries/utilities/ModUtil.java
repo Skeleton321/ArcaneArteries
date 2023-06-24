@@ -2,6 +2,7 @@ package net.arsenalnetwork.arcanearteries.utilities;
 
 import net.arsenalnetwork.arcanearteries.common.creativetabs.ModCreativeTabs;
 import net.minecraft.block.Block;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -417,5 +419,16 @@ public class ModUtil
             return name;
         }
         return name + "_" + suffix;
+    }
+
+    /**
+     * translate and process colour code.
+     * @param key text key
+     * @param parameters parameters
+     * @return translated text
+     */
+    @SideOnly(Side.CLIENT)
+    public static String i18nFormat(String key, Object... parameters) {
+        return I18n.format(key, parameters).replace('&', '\u00a7');
     }
 }

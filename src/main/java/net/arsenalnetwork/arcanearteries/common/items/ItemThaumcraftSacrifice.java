@@ -3,6 +3,7 @@ package net.arsenalnetwork.arcanearteries.common.items;
 import WayofTime.bloodmagic.item.ItemDaggerOfSacrifice;
 import net.arsenalnetwork.arcanearteries.common.creativetabs.ModCreativeTabs;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +13,8 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.List;
+
+import static net.arsenalnetwork.arcanearteries.utilities.ModUtil.i18nFormat;
 
 public class ItemThaumcraftSacrifice extends ItemDaggerOfSacrifice
 {
@@ -38,12 +41,11 @@ public class ItemThaumcraftSacrifice extends ItemDaggerOfSacrifice
     }
 
     @Override
-    public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag)
+    public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
-        list.add(TextFormatting.RED + "The ancient art of killing");
-        list.add(TextFormatting.RED + "through the use of magic is thrilling");
-        list.add(TextFormatting.BLUE + "Damage: " + TextFormatting.YELLOW + this.weaponDamage);
-
-        super.addInformation(stack, world, list, flag);
+        tooltip.add(i18nFormat("tooltip.arcanearteries.thaumcraft_sacrifice.0"));
+        tooltip.add(i18nFormat("tooltip.arcanearteries.thaumcraft_sacrifice.1"));
+        tooltip.add(i18nFormat("tooltip.arcanearteries.thaumcraft_sacrifice.2", this.weaponDamage));
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

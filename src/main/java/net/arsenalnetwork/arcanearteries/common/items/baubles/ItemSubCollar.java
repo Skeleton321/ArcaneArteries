@@ -5,6 +5,7 @@ import net.arsenalnetwork.arcanearteries.common.creativetabs.ModCreativeTabs;
 import net.arsenalnetwork.arcanearteries.common.init.ModItems;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,6 +29,8 @@ import javax.annotation.Nullable;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
+
+import static net.arsenalnetwork.arcanearteries.utilities.ModUtil.i18nFormat;
 
 public class ItemSubCollar extends ItemAmuletVis implements ICosmeticAttachable
 {
@@ -60,33 +63,21 @@ public class ItemSubCollar extends ItemAmuletVis implements ICosmeticAttachable
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn)
     {
-        tooltip.add(TextFormatting.GOLD + "Capacity: " + this.getMaxVis(stack) / 100);
+        tooltip.add(i18nFormat("tooltip.arcanearteries.item_sub_collar.0", this.getMaxVis(stack) / 100));
 
-        if (stack.hasTagCompound())
-        {
-            Iterator count = Aspect.getPrimalAspects().iterator();
+        NBTTagCompound compound = stack.getTagCompound();
+        if(compound == null) return;
 
-            while (count.hasNext())
-            {
-                Aspect aspect = (Aspect) count.next();
-
-                if (stack.getTagCompound().hasKey(aspect.getTag()))
-                {
-                    String amount = this.myFormatter.format((double)((float)stack.getTagCompound().getInteger(aspect.getTag()) / 100.0F));
-                    tooltip.add("\u00a7" + aspect.getChatcolor() + aspect.getName() + TextFormatting.RESET + " x " + amount);
-                }
-            }
-
-            if (stack.getTagCompound().hasKey("owner"))
-            {
-                tooltip.add("Owner: " + stack.getTagCompound().getString("owner"));
-            }
-
-            if (GuiScreen.isShiftKeyDown() && getCosmeticItem(stack) != null)
-            {
-                tooltip.add(String.format("Has Cosmetic: ", getCosmeticItem(stack).getDisplayName()).replaceAll("&", "\u00a7"));
-            }
+        for(Aspect aspect : Aspect.getPrimalAspects()) {
+            if(!compound.hasKey(aspect.getTag())) continue;
+            String amount = this.myFormatter.format((float)stack.getTagCompound().getInteger(aspect.getTag()) / 100.0F);
+            tooltip.add("\u00a7" + aspect.getChatcolor() + aspect.getName() + TextFormatting.RESET + " x " + amount);
         }
+        if(compound.hasKey("owner"))
+            tooltip.add(i18nFormat("tooltip.arcanearteries.item_sub_collar.addon.0", compound.getString("owner")));
+        if(GuiScreen.isShiftKeyDown() && getCosmeticItem(stack) != null)
+            tooltip.add(i18nFormat("tooltip.arcanearteries.item_sub_collar.addon.1", getCosmeticItem(stack).getDisplayName()));
+
     }
 
     /**

@@ -3,16 +3,20 @@ package net.arsenalnetwork.arcanearteries.common.items.scribes;
 import WayofTime.bloodmagic.iface.IBindable;
 import net.arsenalnetwork.arcanearteries.common.creativetabs.ModCreativeTabs;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import thaumcraft.api.items.IScribeTools;
 
 import javax.annotation.Nullable;
 import java.util.List;
+
+import static net.arsenalnetwork.arcanearteries.utilities.ModUtil.i18nFormat;
 
 public class ItemBloodwell extends Item implements IScribeTools, IBindable
 {
@@ -57,11 +61,11 @@ public class ItemBloodwell extends Item implements IScribeTools, IBindable
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (stack.hasTagCompound())
-        {
-            tooltip.add("");
-            tooltip.add("Current Owner: " + stack.getTagCompound().getString("ownerName"));
-        }
+        NBTTagCompound compound = stack.getTagCompound();
+        if(compound == null) return;
+
+        tooltip.add("");
+        tooltip.add(i18nFormat("tooltip.arcanearteries.blood_well.1", stack.getTagCompound().getString("ownerName")));
     }
 
     @Override

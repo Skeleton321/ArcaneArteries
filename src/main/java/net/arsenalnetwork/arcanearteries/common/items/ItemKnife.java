@@ -5,7 +5,6 @@ import WayofTime.bloodmagic.util.helper.PlayerSacrificeHelper;
 import net.arsenalnetwork.arcanearteries.client.config.ConfigFile;
 import net.arsenalnetwork.arcanearteries.common.creativetabs.ModCreativeTabs;
 import net.arsenalnetwork.arcanearteries.utilities.ModUtil;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,11 +12,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import vazkii.botania.api.mana.IManaUsingItem;
 
 import java.util.List;
+
+import static net.arsenalnetwork.arcanearteries.utilities.ModUtil.i18nFormat;
 
 public class ItemKnife extends ItemSacrificialDagger implements IManaUsingItem
 {
@@ -46,8 +46,8 @@ public class ItemKnife extends ItemSacrificialDagger implements IManaUsingItem
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft)
     {
-        EntityPlayer entityPlayer = Minecraft.getMinecraft().player;
-        PlayerSacrificeHelper.sacrificePlayerHealth(entityPlayer);
+        if(entityLiving instanceof EntityPlayer)
+            PlayerSacrificeHelper.sacrificePlayerHealth((EntityPlayer) entityLiving);
     }
 
     @Override
@@ -84,13 +84,11 @@ public class ItemKnife extends ItemSacrificialDagger implements IManaUsingItem
     }
 
     @Override
-    public void addInformation(ItemStack stack, World world, List<String> list, ITooltipFlag flag)
+    public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag)
     {
-        list.add(TextFormatting.RED + "Do I make you thorny baby!");
-        list.add(TextFormatting.BLUE + "Damage: " + TextFormatting.YELLOW + this.weaponDamage);
-        list.add(TextFormatting.GRAY + "Right click an altar while sneaking to fill it!");
-
-        super.addInformation(stack, world, list, flag);
+        tooltip.add(i18nFormat("tooltip.arcanearteries.knife.0"));
+        tooltip.add(i18nFormat("tooltip.arcanearteries.knife.1", this.weaponDamage));
+        super.addInformation(stack, world, tooltip, flag);
     }
 
     @Override
